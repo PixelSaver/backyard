@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dxovtkxxlodrg"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dxovtkxxlodrg"]
 
 [ext_resource type="FontFile" uid="uid://c6doax86gi7v" path="res://Assets/Fontysfirstfont-Regular.ttf" id="1_sdao3"]
 
@@ -71,6 +71,18 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj1lx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.0588235, 0.423529, 0.294118, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [resource]
 default_base_scale = 1.29
 default_font = ExtResource("1_sdao3")
@@ -97,5 +109,7 @@ Button/styles/focus = SubResource("StyleBoxFlat_v7r0k")
 Button/styles/hover = SubResource("StyleBoxFlat_koc4f")
 Button/styles/normal = SubResource("StyleBoxFlat_6usot")
 Button/styles/pressed = SubResource("StyleBoxFlat_kh4qu")
+LineEdit/font_sizes/font_size = 30
+LineEdit/styles/normal = SubResource("StyleBoxFlat_tj1lx")
 PopupMenu/constants/v_separation = 25
 PopupMenu/font_sizes/font_size = 25

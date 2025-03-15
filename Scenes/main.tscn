@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=17 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
@@ -7,7 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://b65b8b2mp1myy" path="res://Assets/crumple.webp" id="5_kry3j"]
 [ext_resource type="Script" uid="uid://cdgqh881yyjo2" path="res://Scripts/drag-rigid2d.gd" id="6_21xkr"]
 [ext_resource type="Script" uid="uid://d1bv4tihdf4em" path="res://Scripts/last_names.gd" id="7_344ge"]
+[ext_resource type="Texture2D" uid="uid://f6vkathc30tk" path="res://Assets/Bar1.webp" id="7_d1ilt"]
+[ext_resource type="Script" uid="uid://cvop8ycj2nlcr" path="res://Scenes/email_input.gd" id="8_6iyac"]
 [ext_resource type="Script" uid="uid://dedjp1di2rytk" path="res://Scripts/first_names.gd" id="8_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://de0ohhx4t4dpw" path="res://Assets/Bar2.webp" id="10_6iyac"]
+[ext_resource type="Texture2D" uid="uid://uhbjhmsgh8vc" path="res://Assets/Bar3.webp" id="11_fdnlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(414, 203)
@@ -21,10 +25,11 @@ size = Vector2(612, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
 size = Vector2(196, 48)
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("button")]
 script = ExtResource("1_ig7tw")
 column_width = 1152
 column_heights = Array[int]([0, 1000, 1000, 1000])
+button = NodePath("Lists/1/CenterContainer5/Next")
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -167,18 +172,24 @@ shape = SubResource("RectangleShape2D_21xkr")
 [node name="StaticBody2d" type="StaticBody2D" parent="Lists/0"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lists/0/StaticBody2d"]
-polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 906, -40, 904, 711, -74, 723, -70, 649, 852, 650, 843, -4)
+polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 831, -44, 826, 704, -74, 723, -70, 649, 723, 644, 730, -1)
 
 [node name="1" type="VBoxContainer" parent="Lists"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 0
 offset_left = 616.0
 offset_top = -324.0
-offset_right = 1366.0
+offset_right = 1316.0
 offset_bottom = 1324.0
 
-[node name="CenterContainer4" type="CenterContainer" parent="Lists/1"]
+[node name="Bar1" type="TextureRect" parent="Lists/1"]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("7_d1ilt")
+expand_mode = 5
+
+[node name="CenterContainer4" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
 [node name="Tell us more" type="RichTextLabel" parent="Lists/1"]
@@ -214,7 +225,7 @@ popup/item_1/text = "WHERE ELSE ARE YOU GOING TO GO!??!!??"
 popup/item_1/id = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="Lists/1"]
-custom_minimum_size = Vector2(0, 40)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="Email" type="RichTextLabel" parent="Lists/1"]
@@ -223,6 +234,13 @@ theme = ExtResource("4_kry3j")
 bbcode_enabled = true
 text = "[font_size=30][color=black]What is your email?[/color][/font_size]"
 fit_content = true
+
+[node name="EmailInput" type="LineEdit" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+placeholder_text = "✉️ Enter email here"
+keep_editing_on_text_submit = true
+script = ExtResource("8_6iyac")
 
 [node name="Spacer" type="CenterContainer" parent="Lists/1"]
 custom_minimum_size = Vector2(0, 20)
@@ -260,6 +278,16 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]What should we call you?[/color][/font_size]"
 fit_content = true
 
+[node name="Control2" type="BoxContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Lists/1/Control2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+button_mask = 0
+text = "    Stupid    "
+
 [node name="Spacer3" type="CenterContainer" parent="Lists/1"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -293,16 +321,35 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]Date of Birth?[/color][/font_size]"
 fit_content = true
 
+[node name="Spacer6" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CenterContainer5" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Next" type="Button" parent="Lists/1/CenterContainer5"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+theme_override_font_sizes/font_size = 50
+text = "    Next ➜    "
+
 [node name="2" type="VBoxContainer" parent="Lists"]
-visible = false
 layout_mode = 0
-offset_left = 1728.0
+offset_left = 1768.0
 offset_top = -324.0
-offset_right = 2478.0
+offset_right = 2468.0
 offset_bottom = 1324.0
 
-[node name="CenterContainer4" type="CenterContainer" parent="Lists/2"]
+[node name="Bar2" type="TextureRect" parent="Lists/2"]
 custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("10_6iyac")
+expand_mode = 5
+
+[node name="CenterContainer5" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 
 [node name="Safety" type="RichTextLabel" parent="Lists/2"]
@@ -358,12 +405,21 @@ text = "[font_size=30][color=black]How did you get find us?[/color][/font_size]"
 fit_content = true
 
 [node name="3" type="VBoxContainer" parent="Lists"]
-visible = false
 layout_mode = 0
-offset_left = 2880.0
+offset_left = 2920.0
 offset_top = -324.0
-offset_right = 4032.0
+offset_right = 3620.0
 offset_bottom = 1324.0
+
+[node name="Bar3" type="TextureRect" parent="Lists/3"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+texture = ExtResource("11_fdnlq")
+expand_mode = 5
+
+[node name="CenterContainer5" type="CenterContainer" parent="Lists/3"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
