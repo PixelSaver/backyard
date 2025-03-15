@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://k3trw4fsllw6"]
+
+[ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://855x8d71r0yv" path="res://icon.svg" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" node_paths=PackedStringArray("cursor_sprite", "button")]
+script = ExtResource("1_ig7tw")
+cursor_sprite = NodePath("Cursor")
+button = NodePath("UI/Control/Button")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="UI/Control"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 130.0
+offset_right = 610.0
+offset_bottom = 204.0
+action_mode = 0
+text = "Hi!"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[node name="Cursor" type="Sprite2D" parent="."]
+texture = ExtResource("2_0xm2m")
