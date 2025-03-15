@@ -40,6 +40,7 @@ func traverse_form(num:int):
 	curr_col = clamp(curr_col, 0, 3)
 	camera.position_smoothing_enabled = false
 	camera.position.x = curr_col * column_width
+	await get_tree().create_timer(0.0001).timeout
 	camera.position_smoothing_enabled = true
 	
 
