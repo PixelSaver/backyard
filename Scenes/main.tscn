@@ -26,6 +26,7 @@ column_heights = Array[int]([0, 1000, 1000, 1000])
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -42,6 +43,7 @@ scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -165,23 +167,175 @@ shape = SubResource("RectangleShape2D_21xkr")
 [node name="StaticBody2d" type="StaticBody2D" parent="Lists/0"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lists/0/StaticBody2d"]
-polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 1207, -49, 1213, 708, -74, 723, -70, 649, 1154, 651, 1154, -3)
+polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 906, -40, 904, 711, -74, 723, -70, 649, 852, 650, 843, -4)
 
 [node name="1" type="VBoxContainer" parent="Lists"]
 visible = false
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 0
 offset_left = 576.0
 offset_top = -324.0
-offset_right = 1728.0
+offset_right = 1326.0
 offset_bottom = 1324.0
 
+[node name="CenterContainer4" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Tell us more" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=50][color=black]First, tell us more about you![/color][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Event" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What event would you like to go to?[/color][/font_size]"
+fit_content = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Lists/1"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Email" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What is your email?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What is your full name?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer2" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Call you" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What should we call you?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer3" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Pronouns" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]Pronouns?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer4" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Address" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]Where do you live?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer5" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Date of Birth" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]Date of Birth?[/color][/font_size]"
+fit_content = true
+
 [node name="2" type="VBoxContainer" parent="Lists"]
-visible = false
 layout_mode = 0
 offset_left = 1728.0
 offset_top = -324.0
-offset_right = 2880.0
+offset_right = 2478.0
 offset_bottom = 1324.0
+
+[node name="CenterContainer4" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Safety" type="RichTextLabel" parent="Lists/2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=40][color=black]Safety and Emergency Information[/color][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Mother" type="RichTextLabel" parent="Lists/2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]Who is your mother?[/color][/font_size]"
+fit_content = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Contact" type="RichTextLabel" parent="Lists/2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]How do I contact your mother?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Maiden Name" type="RichTextLabel" parent="Lists/2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What is your mother's maiden name?[/color][/font_size]"
+fit_content = true
+
+[node name="Spacer2" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="How did you know" type="RichTextLabel" parent="Lists/2"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]How did you get find us?[/color][/font_size]"
+fit_content = true
 
 [node name="3" type="VBoxContainer" parent="Lists"]
 visible = false
@@ -195,6 +349,7 @@ offset_bottom = 1324.0
 zoom = Vector2(2, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
 offset_left = -357.0
