@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://djwpw33d4d8u7"]
+[gd_scene load_steps=23 format=3 uid="uid://cw7xp08c47xaf"]
 
 [ext_resource type="Script" uid="uid://b21cmkoo1vg0o" path="res://Scripts/Cursor.gd" id="1_ggs4s"]
 [ext_resource type="Texture2D" uid="uid://dysds1io0tcfl" path="res://addons/awesome_custom_cursor/assets/cursors/pointer_c.png" id="2_etq7y"]
