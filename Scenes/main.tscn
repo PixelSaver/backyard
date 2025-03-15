@@ -67,6 +67,7 @@ alignment = 1
 [node name="RigidBody2D" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
 position = Vector2(500, 240)
 gravity_scale = 0.0
+script = ExtResource("6_21xkr")
 
 [node name="TextureRect" type="TextureRect" parent="Lists/0/RigidBody2D"]
 offset_left = -397.0
@@ -80,9 +81,16 @@ expand_mode = 1
 position = Vector2(-197, -91.5)
 shape = SubResource("RectangleShape2D_kry3j")
 
+[node name="Area2D" type="Area2D" parent="Lists/0/RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lists/0/RigidBody2D/Area2D"]
+position = Vector2(-197, -91.5)
+shape = SubResource("RectangleShape2D_kry3j")
+
 [node name="RigidBody2D2" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
 position = Vector2(300, 300)
 gravity_scale = 0.0
+script = ExtResource("6_21xkr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D2"]
 shape = SubResource("RectangleShape2D_6bp64")
@@ -100,9 +108,15 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="Lists/0/RigidBody2D2"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D2/Area2D"]
+shape = SubResource("RectangleShape2D_6bp64")
+
 [node name="RigidBody2D3" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
 position = Vector2(300, 325)
 gravity_scale = 0.0
+script = ExtResource("6_21xkr")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D3"]
 shape = SubResource("RectangleShape2D_344ge")
@@ -119,6 +133,11 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="Lists/0/RigidBody2D3"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D3/Area2D"]
+shape = SubResource("RectangleShape2D_344ge")
 
 [node name="RigidBody2D4" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
 position = Vector2(300, 400)
@@ -138,9 +157,14 @@ theme = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="RigidBody2D6" type="StaticBody2D" parent="Lists/0"]
+[node name="Area2D" type="Area2D" parent="Lists/0/RigidBody2D4"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lists/0/RigidBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lists/0/RigidBody2D4/Area2D"]
+shape = SubResource("RectangleShape2D_21xkr")
+
+[node name="StaticBody2d" type="StaticBody2D" parent="Lists/0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lists/0/StaticBody2d"]
 polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 1207, -49, 1213, 708, -74, 723, -70, 649, 1154, 651, 1154, -3)
 
 [node name="1" type="VBoxContainer" parent="Lists"]
