@@ -35,6 +35,8 @@ func _input(event):
 	if event.is_action_pressed("ui_right"):
 		traverse_form(1)
 
+
+
 func traverse_form(num:int):
 	curr_col += num
 	curr_col = clamp(curr_col, 0, 3)
@@ -46,3 +48,14 @@ func traverse_form(num:int):
 
 func warp_mouse_vec(direction : Vector2):
 	Input.warp_mouse(get_viewport().get_mouse_position() + direction)
+
+var physics = false
+func _on_button_button_down() -> void:
+	if physics == false:
+		physics = true
+		for node in get_tree().get_nodes_in_group("startScreen"):
+			node.gravity_scale = 1
+			node.linear_velocity = Vector2(randf(),randf()).normalized() *100
+			node.angular_velocity = randf_range(-1,1) * 10
+	else:
+		traverse_form(1)

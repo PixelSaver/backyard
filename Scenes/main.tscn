@@ -1,15 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=11 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://h8gpfsiug008" path="res://Assets/backyardlogo.webp" id="3_jjvhh"]
 [ext_resource type="Theme" uid="uid://dxovtkxxlodrg" path="res://Assets/new_theme.tres" id="4_kry3j"]
 [ext_resource type="Texture2D" uid="uid://b65b8b2mp1myy" path="res://Assets/crumple.webp" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://cdgqh881yyjo2" path="res://Scenes/drag-rigid2d.gd" id="6_21xkr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
+size = Vector2(414, 203)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bp64"]
+size = Vector2(590, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_344ge"]
+size = Vector2(612, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
+size = Vector2(196, 48)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
 column_width = 1152
-column_heights = Array[int]([1000, 1000, 1000, 1000])
+column_heights = Array[int]([0, 1000, 1000, 1000])
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -51,13 +64,34 @@ offset_right = 174.0
 offset_bottom = 324.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Lists/0"]
-layout_mode = 2
-texture = ExtResource("3_jjvhh")
-expand_mode = 5
+[node name="RigidBody2D" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
+position = Vector2(500, 240)
+gravity_scale = 0.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Lists/0"]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="Lists/0/RigidBody2D"]
+offset_left = -397.0
+offset_top = -191.5
+offset_right = 4.0
+offset_bottom = 8.5
+texture = ExtResource("3_jjvhh")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lists/0/RigidBody2D"]
+position = Vector2(-197, -91.5)
+shape = SubResource("RectangleShape2D_kry3j")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
+position = Vector2(300, 300)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D2"]
+shape = SubResource("RectangleShape2D_6bp64")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Lists/0/RigidBody2D2/CollisionShape2D2"]
+offset_left = -316.0
+offset_top = -31.0
+offset_right = 318.0
+offset_bottom = 29.0
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
 text = "[font_size=30][color=black]Sign up for a Scrapyard event near you![/color][/font_size]"
@@ -66,8 +100,18 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Lists/0"]
-layout_mode = 2
+[node name="RigidBody2D3" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
+position = Vector2(300, 325)
+gravity_scale = 0.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Lists/0/RigidBody2D3"]
+shape = SubResource("RectangleShape2D_344ge")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Lists/0/RigidBody2D3/CollisionShape2D2"]
+offset_left = -318.0
+offset_top = -31.0
+offset_right = 319.0
+offset_bottom = 34.0
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
 text = "[font_size=20][color=black]Signing up is absolutely $free.99 and takes more than a minute :)[/color][/font_size]"
@@ -76,21 +120,31 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Lists/0"]
-custom_minimum_size = Vector2(50, 30)
-layout_mode = 2
+[node name="RigidBody2D4" type="RigidBody2D" parent="Lists/0" groups=["startScreen"]]
+position = Vector2(300, 400)
+gravity_scale = 0.0
+script = ExtResource("6_21xkr")
 
-[node name="CenterContainer2" type="CenterContainer" parent="Lists/0"]
-layout_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lists/0/RigidBody2D4"]
+shape = SubResource("RectangleShape2D_21xkr")
 
-[node name="Button" type="Button" parent="Lists/0/CenterContainer2"]
+[node name="Button" type="Button" parent="Lists/0/RigidBody2D4/CollisionShape2D"]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
 theme = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
+[node name="RigidBody2D6" type="StaticBody2D" parent="Lists/0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lists/0/RigidBody2D6"]
+polygon = PackedVector2Array(0, 0, 0, 648, -74, 649, -47, -47, 1207, -49, 1213, 708, -74, 723, -70, 649, 1154, 651, 1154, -3)
+
 [node name="1" type="VBoxContainer" parent="Lists"]
+visible = false
 layout_mode = 0
 offset_left = 576.0
 offset_top = -324.0
@@ -98,6 +152,7 @@ offset_right = 1728.0
 offset_bottom = 1324.0
 
 [node name="2" type="VBoxContainer" parent="Lists"]
+visible = false
 layout_mode = 0
 offset_left = 1728.0
 offset_top = -324.0
@@ -105,6 +160,7 @@ offset_right = 2880.0
 offset_bottom = 1324.0
 
 [node name="3" type="VBoxContainer" parent="Lists"]
+visible = false
 layout_mode = 0
 offset_left = 2880.0
 offset_top = -324.0
@@ -121,3 +177,5 @@ offset_left = -357.0
 offset_top = 19.0
 offset_right = -144.0
 offset_bottom = 163.0
+
+[connection signal="button_down" from="Lists/0/RigidBody2D4/CollisionShape2D/Button" to="." method="_on_button_button_down"]
