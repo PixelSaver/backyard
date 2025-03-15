@@ -1,8 +1,5 @@
 extends Node2D
 
-@export_category("Cursor")
-@export var cursor_sprite : Sprite2D
-@export var button : Button
 @export_category("Form Stuff")
 @export var column_width :int 
 @export var column_heights : Array[int]
@@ -19,10 +16,10 @@ func _ready():
 	camera.position_smoothing_speed = scroll_smoothing
 	
 func _process(delta: float) -> void:
-	if (get_global_mouse_position() - button.position).length() < 50:
-		print("CLOSE")
-		warp_mouse_vec(get_global_mouse_position() - button.position)
-	
+	#if (get_global_mouse_position() - button.position).length() < 50:
+		#print("CLOSE")
+		#warp_mouse_vec(get_global_mouse_position() - button.position)
+	pass
 
 func _input(event):
 	if event.is_action("ui_accept"):

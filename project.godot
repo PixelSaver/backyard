@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CursorCage"
-run/main_scene="uid://k3trw4fsllw6"
+run/main_scene="uid://ciaoawue06we5"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 Global="*res://Scripts/global.gd"
 Cursor="*res://Scenes/Cursor.tscn"
+
+[display]
+
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 
 [editor_plugins]
 

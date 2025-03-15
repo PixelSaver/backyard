@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=5 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
 [ext_resource type="Texture2D" uid="uid://h8gpfsiug008" path="res://Assets/backyardlogo.webp" id="3_jjvhh"]
 [ext_resource type="Theme" uid="uid://dxovtkxxlodrg" path="res://Assets/new_theme.tres" id="4_kry3j"]
-[ext_resource type="Texture2D" uid="uid://b65b8b2mp1myy" path="res://Assets/crumple.webp" id="5_kry3j"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ig7tw")
 column_width = 648
 column_heights = Array[int]([1000, 1000, 1000, 1000])
+scroll_speed = null
+scroll_smoothing = null
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -26,23 +27,31 @@ grow_vertical = 2
 [node name="Sprite2D" type="Sprite2D" parent="Background/Control"]
 position = Vector2(391.35, 391.35)
 scale = Vector2(1.25128, 1.25128)
-texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
 
 [node name="Gridthing" type="Sprite2D" parent="UI"]
 position = Vector2(1700, 330)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8gbba")
 
-[node name="Lists" type="Control" parent="."]
+[node name="Lists" type="Control" parent="UI"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 
-[node name="0" type="VBoxContainer" parent="Lists"]
+[node name="0" type="VBoxContainer" parent="UI/Lists"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 0
 offset_left = -576.0
@@ -51,12 +60,12 @@ offset_right = 174.0
 offset_bottom = 324.0
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="Lists/0"]
+[node name="TextureRect" type="TextureRect" parent="UI/Lists/0"]
 layout_mode = 2
 texture = ExtResource("3_jjvhh")
 expand_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Lists/0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Lists/0"]
 layout_mode = 2
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
@@ -66,7 +75,7 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="Lists/0"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="UI/Lists/0"]
 layout_mode = 2
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
@@ -76,48 +85,46 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Lists/0"]
+[node name="CenterContainer" type="CenterContainer" parent="UI/Lists/0"]
 custom_minimum_size = Vector2(50, 30)
 layout_mode = 2
 
-[node name="CenterContainer2" type="CenterContainer" parent="Lists/0"]
+[node name="CenterContainer2" type="CenterContainer" parent="UI/Lists/0"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Lists/0/CenterContainer2"]
+[node name="Button" type="Button" parent="UI/Lists/0/CenterContainer2"]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 30
 text = "Start"
 
-[node name="1" type="VBoxContainer" parent="Lists"]
+[node name="1" type="VBoxContainer" parent="UI/Lists"]
 layout_mode = 0
 offset_left = 576.0
 offset_top = -324.0
 offset_right = 1728.0
 offset_bottom = 1324.0
 
-[node name="2" type="VBoxContainer" parent="Lists"]
+[node name="2" type="VBoxContainer" parent="UI/Lists"]
 layout_mode = 0
 offset_left = 1728.0
 offset_top = -324.0
 offset_right = 2880.0
 offset_bottom = 1324.0
 
-[node name="3" type="VBoxContainer" parent="Lists"]
+[node name="3" type="VBoxContainer" parent="UI/Lists"]
 layout_mode = 0
 offset_left = 2880.0
 offset_top = -324.0
 offset_right = 4032.0
 offset_bottom = 1324.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
+[node name="CheckButton" type="CheckButton" parent="UI/Lists"]
+layout_mode = 0
 offset_left = -357.0
 offset_top = 19.0
 offset_right = -144.0
 offset_bottom = 163.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
