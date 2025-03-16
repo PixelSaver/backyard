@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5l6jmgu6i3sh"]
+
+[ext_resource type="Texture2D" uid="uid://b1un1hq4d4hgp" path="res://textbar.png" id="1_n0dy3"]
+[ext_resource type="FontFile" uid="uid://5cm2uptyxrn" path="res://Fontysfirstfont-Regular.ttf" id="2_m85th"]
+[ext_resource type="Texture2D" uid="uid://c11pintwry6lm" path="res://Background/submission.png" id="3_1d6dp"]
+[ext_resource type="Texture2D" uid="uid://bxspu6map2lvq" path="res://Background/submissionWhiteBar.png" id="4_jardj"]
+[ext_resource type="Texture2D" uid="uid://b7rs5lk8dd32e" path="res://Background/submissionGreenBar.png" id="5_6edcu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n35tj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7kr2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjvw8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -477.0
+offset_top = -16.0
+offset_right = -99.0
+offset_bottom = 88.0
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.343915
+anchor_top = -5.10577
+anchor_right = -0.343915
+anchor_bottom = -5.10577
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 1070.0
+offset_bottom = 188.0
+texture = ExtResource("1_n0dy3")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="ColorRect/TextureRect"]
+layout_mode = 0
+offset_left = 85.5483
+offset_top = 37.8789
+offset_right = 932.548
+offset_bottom = 131.879
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_m85th")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n35tj")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_y7kr2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gjvw8")
+placeholder_text = "TEST TEST TEST TEST"
+clear_button_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -575.0
+offset_top = -323.0
+offset_right = 579.0
+offset_bottom = 325.0
+color = Color(0.054902, 0.054902, 0.054902, 0.0862745)
+
+[node name="ColorRect2" type="ColorRect" parent="ColorRect2"]
+offset_left = 142.0
+offset_top = 84.0
+offset_right = 1010.0
+offset_bottom = 543.0
+color = Color(0, 0, 0, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect2/ColorRect2"]
+layout_mode = 0
+offset_left = -47.0
+offset_top = 9.0
+offset_right = 845.0
+offset_bottom = 470.0
+texture = ExtResource("3_1d6dp")
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect2/ColorRect2/TextureRect"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 214.0
+offset_right = 450.0
+offset_bottom = 390.0
+color = Color(1, 1, 1, 0)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect2/ColorRect2/TextureRect/ColorRect"]
+layout_mode = 0
+offset_left = -89.0
+offset_top = -218.0
+offset_right = 803.0
+offset_bottom = 243.0
+texture_normal = ExtResource("4_jardj")
+texture_pressed = ExtResource("4_jardj")
+texture_hover = ExtResource("4_jardj")
+texture_disabled = ExtResource("4_jardj")
+texture_focused = ExtResource("4_jardj")
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect2/ColorRect2/TextureRect/ColorRect/TextureButton"]
+offset_left = 30.0
+offset_top = 1.0
+offset_right = 922.0
+offset_bottom = 462.0
+texture_normal = ExtResource("5_6edcu")
+texture_pressed = ExtResource("5_6edcu")
+texture_hover = ExtResource("5_6edcu")
+texture_disabled = ExtResource("5_6edcu")
+texture_focused = ExtResource("5_6edcu")
+
+[node name="Label" type="Label" parent="ColorRect2/ColorRect2/TextureRect/ColorRect/TextureButton/TextureButton"]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 305.0
+offset_right = 755.0
+offset_bottom = 347.0
+theme_override_fonts/font = ExtResource("2_m85th")
+theme_override_font_sizes/font_size = 40
+text = "RAgE QuIT!!!"
+
+[node name="Label" type="Label" parent="ColorRect2/ColorRect2/TextureRect/ColorRect/TextureButton"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 306.0
+offset_right = 447.0
+offset_bottom = 380.0
+theme_override_colors/font_color = Color(0.505882, 0.533333, 0.568627, 1)
+theme_override_fonts/font = ExtResource("2_m85th")
+theme_override_font_sizes/font_size = 40
+text = "StARt AgAin"
