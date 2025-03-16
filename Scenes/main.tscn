@@ -37,7 +37,7 @@ size = Vector2(196, 48)
 script = ExtResource("1_ig7tw")
 column_width = 1152
 column_heights = Array[int]([0, 500, 1600, 1000])
-button2_repel_strength_modifier = 0.0
+button2_repel_strength_modifier = 7.0
 button = NodePath("Lists/1/CenterContainer5/Next")
 push_array = [NodePath("Lists/1/CenterContainer5/Next"), NodePath("Lists/2/Control3/TextureRect/Dvorak Line Edit")]
 
@@ -59,7 +59,6 @@ scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
