@@ -36,18 +36,46 @@ func _process(delta: float) -> void:
 func _input(event):
 	if event.is_action("ui_accept"):
 		warp_mouse_vec(Vector2(100,100))
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and Global.curr_col != 2:
 		if event.is_action("mouse_wheel_up"): 
 			camera.position.y -= scroll_speed 
 		elif event.is_action("mouse_wheel_down"):  
 			camera.position.y += scroll_speed  
+		camera.position.y = clamp(camera.position.y, 0, column_heights[Global.curr_col])
+	if Global.curr_col == 2:
+		if event.is_action("w"):
+			camera.position.y -= scroll_speed 
+		if event.is_action("s"):
+			camera.position.y += scroll_speed 
+		if event.is_action("mouse_wheel_up") or event.is_action("mouse_wheel_down"):
+			notify_user_ws(false)
 		camera.position.y = clamp(camera.position.y, 0, column_heights[Global.curr_col])
 	if event.is_action_pressed("ui_left"):
 		traverse_form(-1)
 	if event.is_action_pressed("ui_right"):
 		traverse_form(1)
 
-
+var notif_speed = 5
+var notified = false
+func notify_user_ws(is_recursion: bool):
+	if not is_recursion and not notified:
+		notified = true
+		# Move towards 300 smoothly
+		unnotify_user_ws()
+		var target_position = Vector2(300, $UI/Control3.position.y)
+		while $UI/Control3.position.x != target_position.x:
+			$UI/Control3.position = $UI/Control3.position.lerp(target_position, notif_speed * 0.01)
+			await get_tree().create_timer(0.01).timeout  # Small delay for smooth transition
+			
+			
+func unnotify_user_ws():
+	await get_tree().create_timer(5).timeout
+	print("unnotifying")
+	# Move back to -300 smoothly
+	var target_position = Vector2(-900, $UI/Control3.position.y)
+	while $UI/Control3.position.x != target_position.x:
+		$UI/Control3.position = $UI/Control3.position.lerp(target_position, notif_speed * 0.01)
+		await get_tree().create_timer(0.01).timeout  # Small delay for smooth transition
 
 func traverse_form(num:int):
 	Global.curr_col += num
@@ -55,7 +83,7 @@ func traverse_form(num:int):
 	camera.position_smoothing_enabled = false
 	camera.position.x = Global.curr_col * column_width
 	camera.position.y = 0
-	await get_tree().create_timer(0.0001).timeout
+	#await get_tree().create_timer(0.0001).timeout
 	camera.position_smoothing_enabled = true
 	
 

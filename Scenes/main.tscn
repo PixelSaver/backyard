@@ -63,7 +63,6 @@ scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -71,6 +70,37 @@ transform = Transform2D(2, 0, 0, 2, 0, 0)
 position = Vector2(1700, 330)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8gbba")
+
+[node name="Control3" type="Control" parent="UI"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -300.0
+offset_right = -300.0
+offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="UI/Control3"]
+layout_mode = 0
+offset_left = -289.0
+offset_top = -29.0
+offset_right = 258.0
+offset_bottom = 50.0
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Control3"]
+offset_left = -300.0
+offset_top = -20.5
+offset_right = 242.0
+offset_bottom = 39.5
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=red]Might want to use W and S.... hehe[/color][/font_size]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Lists" type="Control" parent="."]
 layout_mode = 3
