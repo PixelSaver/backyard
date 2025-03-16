@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=25 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
@@ -15,6 +15,7 @@
 [ext_resource type="FontFile" uid="uid://c6doax86gi7v" path="res://Assets/Fontysfirstfont-Regular.ttf" id="10_k12tt"]
 [ext_resource type="Texture2D" uid="uid://uhbjhmsgh8vc" path="res://Assets/Bar3.webp" id="11_fdnlq"]
 [ext_resource type="Script" uid="uid://fo1aer4en18j" path="res://Scenes/double_click_next.gd" id="11_jkdf5"]
+[ext_resource type="Script" uid="uid://b3klsho3ik60r" path="res://Scenes/dvorak_control.gd" id="15_k12tt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(414, 203)
@@ -57,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Control"]
-position = Vector2(431, 402)
+position = Vector2(366, 366)
 scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
@@ -258,7 +259,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 anchor_left = -0.0514286
 anchor_top = -1.12
-anchor_right = 0.157143
+anchor_right = 0.0228571
 anchor_bottom = -1.16372
 offset_top = 54.0
 offset_right = 700.0
@@ -271,7 +272,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 offset_left = 69.0
 offset_top = 34.0
-offset_right = 793.0
+offset_right = 708.0
 offset_bottom = 73.0
 theme = ExtResource("4_kry3j")
 placeholder_text = "✉️ Enter email here"
@@ -440,8 +441,37 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]Who is your mother?[/color][/font_size]"
 fit_content = true
 
+[node name="Control3" type="Control" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("15_k12tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Lists/2/Control3"]
+layout_mode = 2
+anchor_left = -0.0514286
+anchor_top = -1.16
+anchor_right = -0.0242857
+anchor_bottom = -1.16372
+offset_top = 54.0
+offset_right = 700.0
+offset_bottom = 167.186
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dvorak Line Edit" type="LineEdit" parent="Lists/2/Control3/TextureRect"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 683.0
+offset_bottom = 73.0
+theme = ExtResource("4_kry3j")
+placeholder_text = "Mine"
+keep_editing_on_text_submit = true
+
 [node name="CenterContainer2" type="CenterContainer" parent="Lists/2"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Contact" type="RichTextLabel" parent="Lists/2"]
@@ -502,3 +532,4 @@ offset_right = -144.0
 offset_bottom = 163.0
 
 [connection signal="button_down" from="Lists/0/RigidBody2D4/CollisionShape2D/Button" to="." method="_on_button_button_down"]
+[connection signal="text_changed" from="Lists/2/Control3/TextureRect/Dvorak Line Edit" to="Lists/2/Control3" method="_on_dvorak_line_edit_text_changed"]
