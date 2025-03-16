@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=25 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
@@ -16,6 +16,10 @@
 [ext_resource type="Script" uid="uid://fo1aer4en18j" path="res://Scenes/double_click_next.gd" id="11_jkdf5"]
 [ext_resource type="Script" uid="uid://c7e4bf05wsw3s" path="res://Scenes/slider_set.gd" id="14_h1bgf"]
 [ext_resource type="Script" uid="uid://b3klsho3ik60r" path="res://Scenes/dvorak_control.gd" id="15_k12tt"]
+[ext_resource type="Script" uid="uid://b8shmoamfd1bo" path="res://Scenes/shrink_button.gd" id="16_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://cujyip3oalpwm" path="res://Assets/submission.webp" id="17_fevyy"]
+[ext_resource type="Script" uid="uid://o518p42jacqm" path="res://Scenes/button.gd" id="19_hibaj"]
+[ext_resource type="Script" uid="uid://bf7m3g0cuugeb" path="res://Scenes/button_2.gd" id="20_hibaj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(414, 203)
@@ -32,7 +36,7 @@ size = Vector2(196, 48)
 [node name="Main" type="Node2D" node_paths=PackedStringArray("button", "push_array")]
 script = ExtResource("1_ig7tw")
 column_width = 1152
-column_heights = Array[int]([0, 500, 1000, 1000])
+column_heights = Array[int]([0, 500, 1600, 1000])
 button2_repel_strength_modifier = 0.0
 button = NodePath("Lists/1/CenterContainer5/Next")
 push_array = [NodePath("Lists/1/CenterContainer5/Next"), NodePath("Lists/2/Control3/TextureRect/Dvorak Line Edit")]
@@ -545,7 +549,7 @@ placeholder_text = "Mine"
 keep_editing_on_text_submit = true
 
 [node name="CenterContainer2" type="CenterContainer" parent="Lists/2"]
-custom_minimum_size = Vector2(0, 50)
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 
 [node name="Contact" type="RichTextLabel" parent="Lists/2"]
@@ -555,8 +559,37 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]How do I contact your mother?[/color][/font_size]"
 fit_content = true
 
+[node name="Control6" type="Control" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("15_k12tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Lists/2/Control6"]
+layout_mode = 2
+anchor_left = -0.0514286
+anchor_top = -1.16372
+anchor_right = -0.0242857
+anchor_bottom = -1.16372
+offset_top = 54.0
+offset_right = 700.0
+offset_bottom = 167.186
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dvorak Line Edit" type="LineEdit" parent="Lists/2/Control6/TextureRect"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 683.0
+offset_bottom = 73.0
+theme = ExtResource("4_kry3j")
+placeholder_text = "Please... i want it really badly"
+keep_editing_on_text_submit = true
+
 [node name="Spacer" type="CenterContainer" parent="Lists/2"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 
 [node name="Maiden Name" type="RichTextLabel" parent="Lists/2"]
@@ -566,8 +599,37 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]What is your mother's maiden name?[/color][/font_size]"
 fit_content = true
 
+[node name="Control4" type="Control" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("15_k12tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Lists/2/Control4"]
+layout_mode = 2
+anchor_left = -0.0514286
+anchor_top = -1.16372
+anchor_right = -0.0242857
+anchor_bottom = -1.16372
+offset_top = 54.0
+offset_right = 700.0
+offset_bottom = 167.186
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dvorak Line Edit" type="LineEdit" parent="Lists/2/Control4/TextureRect"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 683.0
+offset_bottom = 73.0
+theme = ExtResource("4_kry3j")
+placeholder_text = "Fair maiden oh where art thou"
+keep_editing_on_text_submit = true
+
 [node name="Spacer2" type="CenterContainer" parent="Lists/2"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 350)
 layout_mode = 2
 
 [node name="How did you know" type="RichTextLabel" parent="Lists/2"]
@@ -576,6 +638,56 @@ theme = ExtResource("4_kry3j")
 bbcode_enabled = true
 text = "[font_size=30][color=black]How did you get find us?[/color][/font_size]"
 fit_content = true
+
+[node name="Control5" type="Control" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+script = ExtResource("15_k12tt")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Lists/2/Control5"]
+layout_mode = 2
+anchor_left = -0.0514286
+anchor_top = -1.16372
+anchor_right = -0.0242857
+anchor_bottom = -1.16372
+offset_top = 54.0
+offset_right = 700.0
+offset_bottom = 167.186
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dvorak Line Edit" type="LineEdit" parent="Lists/2/Control5/TextureRect"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 683.0
+offset_bottom = 73.0
+theme = ExtResource("4_kry3j")
+placeholder_text = "tell us... we won't tell anyone else..."
+keep_editing_on_text_submit = true
+
+[node name="Spacer3" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+
+[node name="CenterContainer6" type="CenterContainer" parent="Lists/2"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Next" type="Button" parent="Lists/2/CenterContainer6"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+theme_override_font_sizes/font_size = 100
+text = ".
+.    Next ➜    .
+."
+script = ExtResource("16_h1bgf")
+
+[node name="Submission" type="Sprite2D" parent="Lists/2/CenterContainer6"]
+position = Vector2(1504, -1568)
+texture = ExtResource("17_fevyy")
 
 [node name="3" type="VBoxContainer" parent="Lists"]
 layout_mode = 0
@@ -591,8 +703,29 @@ texture = ExtResource("11_fdnlq")
 expand_mode = 5
 
 [node name="CenterContainer5" type="CenterContainer" parent="Lists/3"]
-custom_minimum_size = Vector2(0, 25)
+custom_minimum_size = Vector2(0, 370)
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Lists/3"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Button" type="Button" parent="Lists/3/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+text = "Restart"
+script = ExtResource("19_hibaj")
+
+[node name="Control" type="Control" parent="Lists/3/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Lists/3/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+text = "Rage Quit Lolloollol"
+script = ExtResource("20_hibaj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
@@ -600,3 +733,8 @@ zoom = Vector2(2, 2)
 [connection signal="button_down" from="Lists/0/RigidBody2D4/CollisionShape2D/Button" to="." method="_on_button_button_down"]
 [connection signal="value_changed" from="Lists/1/SliderSet/HSlider" to="Lists/1/SliderSet" method="_on_h_slider_value_changed"]
 [connection signal="text_changed" from="Lists/2/Control3/TextureRect/Dvorak Line Edit" to="Lists/2/Control3" method="_on_dvorak_line_edit_text_changed"]
+[connection signal="text_changed" from="Lists/2/Control6/TextureRect/Dvorak Line Edit" to="Lists/2/Control6" method="_on_dvorak_line_edit_text_changed"]
+[connection signal="text_changed" from="Lists/2/Control4/TextureRect/Dvorak Line Edit" to="Lists/2/Control4" method="_on_dvorak_line_edit_text_changed"]
+[connection signal="text_changed" from="Lists/2/Control5/TextureRect/Dvorak Line Edit" to="Lists/2/Control5" method="_on_dvorak_line_edit_text_changed"]
+[connection signal="mouse_entered" from="Lists/2/CenterContainer6" to="Lists/2/CenterContainer6/Next" method="_on_center_container_6_mouse_entered"]
+[connection signal="mouse_exited" from="Lists/2/CenterContainer6" to="Lists/2/CenterContainer6/Next" method="_on_center_container_6_mouse_exited"]

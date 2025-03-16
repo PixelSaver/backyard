@@ -88,6 +88,8 @@ func traverse_form(num:int):
 	camera.position.y = 0
 	#await get_tree().create_timer(0.0001).timeout
 	camera.position_smoothing_enabled = true
+	if Global.curr_col == 0:
+		get_tree().reload_current_scene()
 	
 
 func warp_mouse_vec(direction : Vector2):
