@@ -9,7 +9,7 @@ extends Node2D
 @onready var camera = get_viewport().get_camera_2d()
 
 @export var button : Button
-
+@export var push_array : Array[Control]
 
 func _ready():
 	camera.position_smoothing_enabled = true
@@ -17,8 +17,12 @@ func _ready():
 	camera.position_smoothing_speed = scroll_smoothing
 	
 func _process(delta: float) -> void:
-	var button_pos = button.global_position
-	var button_size = button.size  # Get button dimensions
+	for node in push_array:
+		push(node)
+		
+func push(node):
+	var button_pos = node.global_position
+	var button_size = node.size  # Get button dimensions
 	
 	var mouse_pos = get_global_mouse_position()
 	
@@ -31,8 +35,7 @@ func _process(delta: float) -> void:
 		var strength = exp(-pow(distance / 50.0, 2)) * 10 * button2_repel_strength_modifier  # Gaussian falloff
 		var push_direction = (mouse_pos - button_pos).normalized()
 		warp_mouse_vec(push_direction * strength)
-	pass
-
+		
 func _input(event):
 	if event.is_action("ui_accept"):
 		warp_mouse_vec(Vector2(100,100))

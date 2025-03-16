@@ -38,12 +38,13 @@ default_font = ExtResource("10_k12tt")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hibaj"]
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("button")]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("button", "push_array")]
 script = ExtResource("1_ig7tw")
 column_width = 1152
 column_heights = Array[int]([0, 500, 1000, 1000])
-button2_repel_strength_modifier = 10.0
+button2_repel_strength_modifier = 7.0
 button = NodePath("Lists/1/CenterContainer5/Next")
+push_array = [NodePath("Lists/1/CenterContainer5/Next"), NodePath("Lists/2/Control3/TextureRect/Dvorak Line Edit")]
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
@@ -63,6 +64,7 @@ scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -76,8 +78,9 @@ custom_minimum_size = Vector2(0, 50)
 layout_mode = 3
 anchors_preset = 0
 offset_left = -300.0
+offset_top = 70.0
 offset_right = -300.0
-offset_bottom = 50.0
+offset_bottom = 120.0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="UI/Control3"]
@@ -90,13 +93,13 @@ texture = ExtResource("8_wsu2k")
 expand_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/Control3"]
-offset_left = -300.0
+offset_left = -282.5
 offset_top = -20.5
-offset_right = 242.0
+offset_right = 259.5
 offset_bottom = 39.5
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
-text = "[font_size=30][color=red]Might want to use W and S.... hehe[/color][/font_size]"
+text = "[font_size=30][color=red][b]Might want to use W and S.... hehe[/b][/color][/font_size]"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
@@ -376,11 +379,23 @@ theme = ExtResource("4_kry3j")
 button_mask = 0
 text = "    Stupid    "
 
+[node name="Spacer7" type="CenterContainer" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Call you2" type="RichTextLabel" parent="Lists/1"]
+layout_mode = 2
+theme = ExtResource("4_kry3j")
+bbcode_enabled = true
+text = "[font_size=30][color=black]What should we call you?[/color][/font_size]"
+fit_content = true
+
 [node name="Spacer3" type="CenterContainer" parent="Lists/1"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="Pronouns" type="RichTextLabel" parent="Lists/1"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
@@ -388,10 +403,12 @@ text = "[font_size=30][color=black]Pronouns?[/color][/font_size]"
 fit_content = true
 
 [node name="Spacer4" type="CenterContainer" parent="Lists/1"]
+visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
 [node name="Address" type="RichTextLabel" parent="Lists/1"]
+visible = false
 layout_mode = 2
 theme = ExtResource("4_kry3j")
 bbcode_enabled = true
@@ -399,6 +416,7 @@ text = "[font_size=30][color=black]Where do you live?[/color][/font_size]"
 fit_content = true
 
 [node name="Spacer5" type="CenterContainer" parent="Lists/1"]
+visible = false
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
@@ -409,8 +427,55 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]Date of Birth?[/color][/font_size]"
 fit_content = true
 
+[node name="Control4" type="Control" parent="Lists/1"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Lists/1/Control4"]
+layout_mode = 0
+offset_right = 660.0
+offset_bottom = 118.0
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="Lists/1/Control4"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.045069
+anchor_top = -0.253863
+anchor_right = -0.47364
+anchor_bottom = -0.253865
+offset_left = 85.5483
+offset_top = 33.6931
+offset_right = 932.548
+offset_bottom = 127.693
+theme = ExtResource("4_kry3j")
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3802")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_fevyy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hibaj")
+placeholder_text = "TEST TEST TEST TEST"
+clear_button_enabled = true
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailInput" type="LineEdit" parent="Lists/1/Control4"]
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 708.0
+offset_bottom = 73.0
+theme = ExtResource("4_kry3j")
+placeholder_text = "Days from Jan 1 1980"
+keep_editing_on_text_submit = true
+
 [node name="Spacer6" type="CenterContainer" parent="Lists/1"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
 [node name="CenterContainer5" type="CenterContainer" parent="Lists/1"]
@@ -552,14 +617,6 @@ layout_mode = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CheckButton" type="CheckButton" parent="CanvasLayer"]
-offset_left = -357.0
-offset_top = 19.0
-offset_right = -144.0
-offset_bottom = 163.0
 
 [connection signal="button_down" from="Lists/0/RigidBody2D4/CollisionShape2D/Button" to="." method="_on_button_button_down"]
 [connection signal="text_changed" from="Lists/2/Control3/TextureRect/Dvorak Line Edit" to="Lists/2/Control3" method="_on_dvorak_line_edit_text_changed"]
