@@ -1,8 +1,6 @@
 # Backyard 
 It's just like the Scrapyard sign up form... but worse. The program will try its best to prevent you from successfully signing up. 
 
-Request to play it here: https://forms.gle/VuUcA9tvjzedwCx6A 
-
 ## Images 
 <br>
 <br>
