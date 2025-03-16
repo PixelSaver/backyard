@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ciaoawue06we5"]
+[gd_scene load_steps=24 format=3 uid="uid://ciaoawue06we5"]
 
 [ext_resource type="Script" uid="uid://f5qlqmio8l0k" path="res://Scripts/main.gd" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://t0ixcuhyn0lx" path="res://Assets/gridthing.svg" id="2_8gbba"]
@@ -9,9 +9,12 @@
 [ext_resource type="Script" uid="uid://d1bv4tihdf4em" path="res://Scripts/last_names.gd" id="7_344ge"]
 [ext_resource type="Texture2D" uid="uid://f6vkathc30tk" path="res://Assets/Bar1.webp" id="7_d1ilt"]
 [ext_resource type="Script" uid="uid://cvop8ycj2nlcr" path="res://Scenes/email_input.gd" id="8_6iyac"]
+[ext_resource type="Texture2D" uid="uid://b822bjdyrkxd4" path="res://Assets/textbar.webp" id="8_wsu2k"]
 [ext_resource type="Script" uid="uid://dedjp1di2rytk" path="res://Scripts/first_names.gd" id="8_ynf5e"]
 [ext_resource type="Texture2D" uid="uid://de0ohhx4t4dpw" path="res://Assets/Bar2.webp" id="10_6iyac"]
+[ext_resource type="FontFile" uid="uid://c6doax86gi7v" path="res://Assets/Fontysfirstfont-Regular.ttf" id="10_k12tt"]
 [ext_resource type="Texture2D" uid="uid://uhbjhmsgh8vc" path="res://Assets/Bar3.webp" id="11_fdnlq"]
+[ext_resource type="Script" uid="uid://fo1aer4en18j" path="res://Scenes/double_click_next.gd" id="11_jkdf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(414, 203)
@@ -25,10 +28,20 @@ size = Vector2(612, 26)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_21xkr"]
 size = Vector2(196, 48)
 
+[sub_resource type="Theme" id="Theme_h1bgf"]
+default_font = ExtResource("10_k12tt")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3802"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fevyy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hibaj"]
+
 [node name="Main" type="Node2D" node_paths=PackedStringArray("button")]
 script = ExtResource("1_ig7tw")
 column_width = 1152
-column_heights = Array[int]([0, 1000, 1000, 1000])
+column_heights = Array[int]([0, 500, 1000, 1000])
+button2_repel_strength_modifier = 10.0
 button = NodePath("Lists/1/CenterContainer5/Next")
 
 [node name="Background" type="CanvasLayer" parent="."]
@@ -44,11 +57,12 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Background/Control"]
-position = Vector2(391.35, 391.35)
+position = Vector2(431, 402)
 scale = Vector2(1.25128, 1.25128)
 texture = ExtResource("5_kry3j")
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 scale = Vector2(2, 2)
 transform = Transform2D(2, 0, 0, 2, 0, 0)
 
@@ -235,15 +249,58 @@ bbcode_enabled = true
 text = "[font_size=30][color=black]What is your email?[/color][/font_size]"
 fit_content = true
 
-[node name="EmailInput" type="LineEdit" parent="Lists/1"]
+[node name="Control3" type="Control" parent="Lists/1"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Lists/1/Control3"]
+layout_mode = 2
+anchor_left = -0.0514286
+anchor_top = -1.12
+anchor_right = 0.157143
+anchor_bottom = -1.16372
+offset_top = 54.0
+offset_right = 700.0
+offset_bottom = 167.186
+texture = ExtResource("8_wsu2k")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EmailInput" type="LineEdit" parent="Lists/1/Control3/TextureRect"]
+layout_mode = 2
+offset_left = 69.0
+offset_top = 34.0
+offset_right = 793.0
+offset_bottom = 73.0
 theme = ExtResource("4_kry3j")
 placeholder_text = "✉️ Enter email here"
 keep_editing_on_text_submit = true
 script = ExtResource("8_6iyac")
 
+[node name="LineEdit" type="LineEdit" parent="Lists/1/Control3/TextureRect"]
+visible = false
+layout_mode = 0
+offset_left = 85.5483
+offset_top = 37.8789
+offset_right = 932.548
+offset_bottom = 131.879
+theme = SubResource("Theme_h1bgf")
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_b3802")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_fevyy")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hibaj")
+placeholder_text = "TEST TEST TEST TEST"
+clear_button_enabled = true
+metadata/_edit_use_anchors_ = true
+
 [node name="Spacer" type="CenterContainer" parent="Lists/1"]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Name" type="RichTextLabel" parent="Lists/1"]
@@ -334,6 +391,18 @@ layout_mode = 2
 theme = ExtResource("4_kry3j")
 theme_override_font_sizes/font_size = 50
 text = "    Next ➜    "
+script = ExtResource("11_jkdf5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Lists/1/CenterContainer5/Next"]
+visible = false
+layout_mode = 0
+offset_left = -64.0
+offset_top = 89.0
+offset_right = 366.0
+offset_bottom = 125.0
+bbcode_enabled = true
+text = "[font_size=30][color=red]I think you need a double click...[/color][/font_size]"
+fit_content = true
 
 [node name="2" type="VBoxContainer" parent="Lists"]
 layout_mode = 0

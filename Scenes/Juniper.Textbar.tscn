@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bjbsrpyu7cwym"]
+
+[ext_resource type="Texture2D" uid="uid://b822bjdyrkxd4" path="res://Assets/textbar.webp" id="1_aeusi"]
+[ext_resource type="FontFile" uid="uid://c6doax86gi7v" path="res://Assets/Fontysfirstfont-Regular.ttf" id="2_u4g04"]
+
+[sub_resource type="Theme" id="Theme_8xm67"]
+default_font = ExtResource("2_u4g04")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n35tj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y7kr2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gjvw8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -477.0
+offset_top = -16.0
+offset_right = -99.0
+offset_bottom = 88.0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 13.0
+offset_right = 1070.0
+offset_bottom = 188.0
+texture = ExtResource("1_aeusi")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Control/TextureRect"]
+layout_mode = 0
+offset_left = 85.5483
+offset_top = 37.8789
+offset_right = 932.548
+offset_bottom = 131.879
+theme = SubResource("Theme_8xm67")
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n35tj")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_y7kr2")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gjvw8")
+placeholder_text = "TEST TEST TEST TEST"
+clear_button_enabled = true
+metadata/_edit_use_anchors_ = true
